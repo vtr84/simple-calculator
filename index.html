@@ -32,6 +32,7 @@
         const firstPlayer = prompt(`🤖\nHey, I'm a bot..\nWhat's your name?`)
         const rndNumber = Math.floor(Math.random()*100)+1
         let botWinning = true
+        let hint = ''
         //console.log(rndNumber)
 
         let guess = parseInt(prompt(`🎰\nLet's play a game!\nGuess the number I'm thinking between 1 and 100 and win big! 💰`))
@@ -41,7 +42,12 @@
                 console.log(`😏 \nOh Uau ${firstPlayer}, you won!\nHere's some virtual money.. 💰💰💰💰💰\nEnjoy!`)
                 botWinning = false;
             } else {
-                guess = parseInt(prompt(`😒 \nSorry, wrong number! Try again: `))
+                if (rndNumber < guess) {
+                    hint = 'The number is Less'
+                } else {
+                    hint = 'The number is More'
+                }
+                guess = parseInt(prompt(`😒 \nSorry, wrong number! Try again:\nHint: ${hint}`))
             }
         }
     </script>
