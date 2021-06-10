@@ -32,22 +32,24 @@
         const firstPlayer = prompt(`🤖\nHey, I'm a bot..\nWhat's your name?`)
         const rndNumber = Math.floor(Math.random()*100)+1
         let botWinning = true
-        let hint = ''
+        //let hint = ''
         //console.log(rndNumber)
 
         let guess = parseInt(prompt(`🎰\nLet's play a game!\nGuess the number I'm thinking between 1 and 100 and win big! 💰`))
 
         while (botWinning) {
             if (rndNumber === guess){
-                console.log(`😏 \nOh Uau ${firstPlayer}, you won!\nHere's some virtual money.. 💰💰💰💰💰\nEnjoy!`)
+                console.log(`Oh Uau ${firstPlayer}, you won!\nHere's some virtual money.. 💰💰💰💰💰\nEnjoy!`)
                 botWinning = false;
             } else {
                 if (rndNumber < guess) {
-                    hint = 'The number is Less ⬇️'
+                    console.log('The number is Less ⬇️')
+                    // hint = 'The number is Less ⬇️'
                 } else {
-                    hint = 'The number is More ⬆️'
+                    console.log('The number is More ⬆️')
+                    // hint = 'The number is More ⬆️'
                 }
-                guess = parseInt(prompt(`😒 \nSorry, wrong number! Try again:\nHint: ${hint}`))
+                guess = parseInt(prompt(`Sorry, wrong number! Try again:\n💡: check console`))
             }
         }
     </script>
