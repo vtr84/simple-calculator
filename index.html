@@ -5,10 +5,94 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: monospace;
+            padding: 50px;
+        }
+
+        .calculator {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            padding: 10px;
+            border: 8px solid grey;
+        }
+        .item {
+            display:flex;
+            flex:1;
+            flex-direction:column;
+            padding:0 10px 10px 0;
+        }
+
+        #result {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 20px;
+            background-color: grey;
+            color: white;
+            font: bold;
+            padding: 20px;
+            margin: 0px;
+        }
+        
+        .correct {
+            background-color: lightgreen;
+            font-size: 80px;
+        }
+
+        .error {
+            background-color: lightsalmon;
+            font-size: 40px;
+        }
+
+        .icon {
+            font-size: 80px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>Welcome to the Online Calculator</h1>
-    <script src="script.js">  
+    <div class="icon">🧮</div>
+    <h1>Simple Calculator</h1>
+    <div class="separator"></div>
+    <div class="calculator">
+        <div class="item">
+            <label>First Value</label>
+            <input id="firstValue">
+        </div>
+        <div class="item">
+            <label>Operation</label>
+            <select id="operator">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="/">/</option>
+                <option value="*">*</option>
+            </select>
+        </div>
+        <div class="item">
+            <label>Second Value</label>
+            <input id="secondValue">
+        </div><button id="calculate">Calculate</button>
+    </div>
+    <p>Result:</p>
+    <div id="result"></div>
+    <script src="script.js">
     </script>
 </body>
 </html>

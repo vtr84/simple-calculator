@@ -1,46 +1,88 @@
-        // const firstPlayer = prompt(`🤖\nHey, I'm a bot..\nWhat's your name?`)
-        // const rndNumber = Math.floor(Math.random()*100)+1
-        // let botWinning = true
-        // //let hint = ''
-        // //console.log(rndNumber)
+// let firstValue = parseInt(prompt('💁‍♂️ \nPlease enter the first value:'))
+// let operator = prompt('💁‍♂️ \nPlease enter the operation you wish to perfom (+, -, /, *):')
+// let secondValue = parseInt(prompt('💁‍♂️\nPlease enter the second value:'))
 
-        // let guess = parseInt(prompt(`🎰\nLet's play a game!\nGuess the number I'm thinking between 1 and 100 and win big! 💰`))
+const firstBox = document.getElementById('firstValue')
+const secondBox = document.getElementById('secondValue')
+const list = document.getElementById('operator')
+const calculateButton = document.getElementById('calculate')
+const result = document.getElementById('result')
 
-        // while (botWinning) {
-        //     if (rndNumber === guess){
-        //         console.log(`Oh Uau ${firstPlayer}, you won!\nHere's some virtual money.. 💰💰💰💰💰\nEnjoy!`)
-        //         botWinning = false;
-        //     } else {
-        //         if (rndNumber < guess) {
-        //             console.log('The number is Less ⬇️')
-        //             // hint = 'The number is Less ⬇️'
-        //         } else {
-        //             console.log('The number is More ⬆️')
-        //             // hint = 'The number is More ⬆️'
-        //         }
-        //         guess = parseInt(prompt(`Sorry, wrong number! Try again:\n💡: check console`))
-        //     }
-        // }
+let firstValue = parseInt(firstBox.value)
+let secondValue = parseInt(secondBox.value)
+let operatorValue = list.value
 
-let firstValue = parseInt(prompt('💁‍♂️ \nPlease enter the first value:'))
-let operator = prompt('💁‍♂️ \nPlease enter the operation you wish to perfom (+, -, /, *):')
-let secondValue = parseInt(prompt('💁‍♂️\nPlease enter the second value:'))
+// console.log(firstValue + operatorValue + secondValue)
 
-switch (operator){
+calculateButton.addEventListener('click', function(){
+    firstValue = parseInt(firstBox.value)
+    secondValue = parseInt(secondBox.value)
+    operatorValue = list.value
+    if (isNaN(firstValue) || isNaN(secondValue)){
+        result.className = 'error'
+        result.innerText = '🤖\nCannot compute!\nOnly numbers please!'
+    } else {
+        calculate(firstValue, secondValue, operatorValue)
+    }
+})
+
+function calculate (firstValue, secondValue, operatorValue){
+switch (operatorValue){
     case '+':
-        console.log(firstValue + secondValue)
+        result.className = 'correct'
+        result.innerText = firstValue + secondValue
         break;
     case '-':
-        console.log(firstValue - secondValue)
+        result.className = 'correct'
+        result.innerText = firstValue - secondValue
         break;
     case '/':
-        console.log(firstValue / secondValue)
+        if (secondValue!==0){
+            result.className = 'correct'
+            result.innerText = firstValue / secondValue
+        } else {
+            result.className = 'error'
+            result.innerText = '🤖\nCannot compute!\nThe Universe would collapse!'
+        }
         break;
     case '*':
-        console.log(firstValue * secondValue)
+        result.className = 'correct'
+        result.innerText = firstValue * secondValue
         break;
     default :
-        console.log('Invalid Operator')
+    result.className = 'error'
+    result.innerText = 'Invalid Operator'
+}
 }
 
-       
+// const myButton = document.getElementById('myButton')
+
+// myButton.addEventListener('click', function(){
+//     console.log('Click on the button')
+// })
+
+// const counter = 
+
+// const random = Math.floor(Math.random() * 10) + 1;
+
+// let name = prompt('Enter your name');
+
+// let num = parseInt(prompt('Enter a number'));
+
+// while(random !== num){
+
+// if(random > num){
+
+// console.log('Try a bigger number')
+
+//  }else {
+
+// console.log('Guess a smaller number')
+
+//  }
+
+// num = parseInt(prompt('Enter a number'));
+
+//  }
+
+// console.log(`${name} wins!!`)
