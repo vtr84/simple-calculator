@@ -7,6 +7,8 @@ const secondBox = document.getElementById('secondValue')
 const list = document.getElementById('operator')
 const calculateButton = document.getElementById('calculate')
 const result = document.getElementById('result')
+const clear = document.getElementById('clear')
+const clearButton = document.getElementById('clearButton')
 
 let firstValue = parseInt(firstBox.value)
 let secondValue = parseInt(secondBox.value)
@@ -21,36 +23,51 @@ calculateButton.addEventListener('click', function(){
     if (isNaN(firstValue) || isNaN(secondValue)){
         result.className = 'error'
         result.innerText = '🤖\nCannot compute!\nOnly numbers please!'
+        clear.className = ''
     } else {
         calculate(firstValue, secondValue, operatorValue)
     }
+})
+
+clearButton.addEventListener('click', function(){
+    firstBox.value = ''
+    secondBox.value = ''
+    result.innerText = ''
+    result.className = ''
+    clear.className = 'hide'
 })
 
 function calculate (firstValue, secondValue, operatorValue){
 switch (operatorValue){
     case '+':
         result.className = 'correct'
+        clear.className = ''
         result.innerText = firstValue + secondValue
         break;
     case '-':
         result.className = 'correct'
+        clear.className = ''
         result.innerText = firstValue - secondValue
         break;
     case '/':
         if (secondValue!==0){
             result.className = 'correct'
+            clear.className = ''
             result.innerText = firstValue / secondValue
         } else {
             result.className = 'error'
+            clear.className = ''
             result.innerText = '🤖\nCannot compute!\nThe Universe would collapse!'
         }
         break;
     case '*':
         result.className = 'correct'
+        clear.className = ''
         result.innerText = firstValue * secondValue
         break;
     default :
     result.className = 'error'
+    clear.className = ''
     result.innerText = 'Invalid Operator'
 }
 }
